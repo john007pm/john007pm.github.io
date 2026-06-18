@@ -2,107 +2,179 @@
 <html>
 <head>
 <title>John Mosley | ICAM Portfolio</title>
-
 <style>
-
+*{box-sizing:border-box}
 body{
-    margin:0;
-    background:black;
-    color:white;
-    font-family:Arial,sans-serif;
+  margin:0;
+  background:#020202;
+  color:#eee8dc;
+  font-family:"Courier New", monospace;
 }
-
 .hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+  padding:6%;
+  display:flex;
+  align-items:center;
 }
-
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 72% 48%, rgba(255,90,0,.95), transparent 18%),
+    radial-gradient(circle at 66% 45%, rgba(255,190,0,.9), transparent 16%),
+    radial-gradient(circle at 58% 48%, rgba(0,130,210,.8), transparent 14%),
+    radial-gradient(circle at 54% 58%, rgba(0,190,160,.45), transparent 13%),
+    radial-gradient(circle at 80% 58%, rgba(255,0,0,.55), transparent 12%),
+    #020202;
+  filter:contrast(145%) saturate(130%);
+}
+.hero:after{
+  content:"JOHN MOSLEY JOHN MOSLEY JOHN MOSLEY JOHN MOSLEY JOHN MOSLEY";
+  position:absolute;
+  right:4%;
+  top:12%;
+  width:320px;
+  color:rgba(255,255,255,.08);
+  font-size:18px;
+  line-height:1.8;
+  letter-spacing:6px;
+}
+.content{
+  position:relative;
+  z-index:2;
+  max-width:650px;
+}
+.small{
+  letter-spacing:8px;
+  font-size:14px;
+  color:#ffb000;
+}
 h1{
-    font-size:6rem;
-    margin:0;
-    text-shadow:0 0 20px #8B0000;
+  font-family:Impact, Arial Black, sans-serif;
+  font-size:105px;
+  line-height:.9;
+  margin:20px 0;
+  color:#eee8dc;
+  letter-spacing:2px;
+  text-shadow:0 8px 0 rgba(255,255,255,.08);
 }
-
-.red{
-    color:#8B0000;
+h1 span:nth-child(1){color:#ff3b1f}
+h1 span:nth-child(2){color:#1da1ff}
+.tagline{
+  max-width:520px;
+  font-size:18px;
+  line-height:1.6;
 }
-
-h2{
-    font-weight:300;
-    margin-top:10px;
+.nav{
+  position:absolute;
+  top:35px;
+  right:6%;
+  z-index:3;
 }
-
+.nav a{
+  color:#eee8dc;
+  margin-left:30px;
+  text-decoration:none;
+  letter-spacing:4px;
+  font-size:14px;
+}
 .section{
-    padding:100px 15%;
+  padding:70px 6%;
+  border-top:1px solid rgba(255,255,255,.16);
+  display:grid;
+  grid-template-columns:120px 1fr 1fr;
+  gap:40px;
 }
-
-.project{
-    border:1px solid #8B0000;
-    padding:25px;
-    margin:25px 0;
-    border-radius:10px;
-    transition:.3s;
+.number{
+  font-size:38px;
+  color:#ffb000;
 }
-
-.project:hover{
-    box-shadow:0 0 20px #8B0000;
+.section h2{
+  font-size:36px;
+  letter-spacing:8px;
+  margin:0;
 }
-
-p{
-    color:#cccccc;
+.project-list a{
+  display:flex;
+  justify-content:space-between;
+  color:#eee8dc;
+  text-decoration:none;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.15);
+  letter-spacing:3px;
 }
-
+.blue{color:#1da1ff}
+.red{color:#ff3b1f}
+.green{color:#32c875}
+footer{
+  padding:35px 6%;
+  border-top:1px solid rgba(255,255,255,.16);
+  color:#888;
+  letter-spacing:4px;
+  font-size:12px;
+}
+@media(max-width:800px){
+  h1{font-size:70px}
+  .section{grid-template-columns:1fr}
+  .nav{display:none}
+}
 </style>
-
 </head>
 
 <body>
 
+<div class="nav">
+  <a href="#projects">PROJECTS</a>
+  <a href="#about">ABOUT</a>
+  <a href="#contact">CONTACT</a>
+</div>
+
 <div class="hero">
-
-<h1>
-<span class="red">J</span>ohn
-<span class="red">M</span>osley
-</h1>
-
-<h2>UCSD ICAM Student</h2>
-
-<p>
-Filmmaker • Creative Technologist • Digital Artist
-</p>
-
+  <div class="content">
+    <p class="small">UCSD ICAM STUDENT</p>
+    <h1><span>J</span>OHN<br><span>M</span>OSLEY</h1>
+    <p class="tagline">
+      Filmmaker, creative technologist, and digital artist exploring the intersection
+      of art, film, technology, and human experience.
+    </p>
+  </div>
 </div>
 
-<div class="section">
-
-<h2>Featured Projects</h2>
-
-<div class="project">
-<h3>Brain Damage</h3>
-<p>
-Experimental narrative film exploring perception, consciousness, and visual storytelling.
-</p>
+<div class="section" id="projects">
+  <div class="number">01.</div>
+  <h2>PROJECTS</h2>
+  <div class="project-list">
+    <a href="#"><span>BRAIN DAMAGE</span><span class="red">→</span></a>
+    <a href="#"><span>INTERACTIVE MEDIA</span><span class="blue">→</span></a>
+    <a href="#"><span>COMPUTING ARTS</span><span class="green">→</span></a>
+  </div>
 </div>
 
-<div class="project">
-<h3>Interactive Media</h3>
-<p>
-Creative coding, digital art, and emerging technologies.
-</p>
+<div class="section" id="about">
+  <div class="number blue">02.</div>
+  <h2>ABOUT</h2>
+  <p>
+    I create work that lives between technology, storytelling, and emotion.
+    My practice explores film, interaction, computation, and atmosphere.
+  </p>
 </div>
 
-<div class="project">
-<h3>Computing Arts</h3>
-<p>
-Projects and research developed through UCSD ICAM.
-</p>
+<div class="section" id="contact">
+  <div class="number red">03.</div>
+  <h2>CONTACT</h2>
+  <div class="project-list">
+    <a href="mailto:rsmosley@hotmail.com"><span>EMAIL</span><span>→</span></a>
+    <a href="#"><span>INSTAGRAM</span><span>→</span></a>
+    <a href="#"><span>LINKEDIN</span><span>→</span></a>
+  </div>
 </div>
 
-</div>
+<footer>
+  JOHN MOSLEY | ICAM PORTFOLIO
+</footer>
 
 </body>
 </html>
