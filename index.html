@@ -2,14 +2,23 @@
 <html>
 <head>
 <title>John Mosley | ICAM Portfolio</title>
+
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   background:#020202;
   color:#eee8dc;
   font-family:"Courier New", monospace;
 }
+
 .hero{
   min-height:100vh;
   position:relative;
@@ -18,40 +27,60 @@ body{
   display:flex;
   align-items:center;
 }
+
 .hero:before{
   content:"";
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 72% 48%, rgba(255,90,0,.95), transparent 18%),
-    radial-gradient(circle at 66% 45%, rgba(255,190,0,.9), transparent 16%),
-    radial-gradient(circle at 58% 48%, rgba(0,130,210,.8), transparent 14%),
-    radial-gradient(circle at 54% 58%, rgba(0,190,160,.45), transparent 13%),
-    radial-gradient(circle at 80% 58%, rgba(255,0,0,.55), transparent 12%),
+    radial-gradient(circle at 74% 42%, rgba(255,90,0,.95), transparent 17%),
+    radial-gradient(circle at 66% 50%, rgba(255,190,0,.9), transparent 15%),
+    radial-gradient(circle at 58% 47%, rgba(0,130,210,.8), transparent 14%),
+    radial-gradient(circle at 52% 58%, rgba(0,190,160,.45), transparent 13%),
+    radial-gradient(circle at 82% 58%, rgba(255,0,90,.5), transparent 12%),
     #020202;
-  filter:contrast(145%) saturate(130%);
+  filter:contrast(150%) saturate(135%);
 }
+
 .hero:after{
-  content:"JOHN MOSLEY JOHN MOSLEY JOHN MOSLEY JOHN MOSLEY JOHN MOSLEY";
+  content:"ICAM CAD FILM RHINO REVIT FABRICATION DESIGN COMPUTING ART";
   position:absolute;
   right:4%;
-  top:12%;
-  width:320px;
+  top:10%;
+  width:340px;
   color:rgba(255,255,255,.08);
   font-size:18px;
   line-height:1.8;
   letter-spacing:6px;
 }
+
+.nav{
+  position:absolute;
+  top:35px;
+  right:6%;
+  z-index:3;
+}
+
+.nav a{
+  color:#eee8dc;
+  margin-left:28px;
+  text-decoration:none;
+  letter-spacing:4px;
+  font-size:13px;
+}
+
 .content{
   position:relative;
   z-index:2;
-  max-width:650px;
+  max-width:720px;
 }
+
 .small{
   letter-spacing:8px;
   font-size:14px;
   color:#ffb000;
 }
+
 h1{
   font-family:Impact, Arial Black, sans-serif;
   font-size:105px;
@@ -61,54 +90,100 @@ h1{
   letter-spacing:2px;
   text-shadow:0 8px 0 rgba(255,255,255,.08);
 }
-h1 span:nth-child(1){color:#ff3b1f}
-h1 span:nth-child(2){color:#1da1ff}
+
+h1 span:nth-child(1){
+  color:#ff3b1f;
+}
+
+h1 span:nth-child(2){
+  color:#1da1ff;
+}
+
 .tagline{
-  max-width:520px;
+  max-width:580px;
   font-size:18px;
   line-height:1.6;
 }
-.nav{
-  position:absolute;
-  top:35px;
-  right:6%;
-  z-index:3;
-}
-.nav a{
+
+.button{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 24px;
+  border:1px solid #eee8dc;
   color:#eee8dc;
-  margin-left:30px;
   text-decoration:none;
-  letter-spacing:4px;
-  font-size:14px;
+  letter-spacing:3px;
 }
+
 .section{
-  padding:70px 6%;
+  padding:75px 6%;
   border-top:1px solid rgba(255,255,255,.16);
   display:grid;
-  grid-template-columns:120px 1fr 1fr;
+  grid-template-columns:120px 1fr 1.3fr;
   gap:40px;
 }
+
 .number{
   font-size:38px;
   color:#ffb000;
 }
+
 .section h2{
   font-size:36px;
   letter-spacing:8px;
   margin:0;
 }
-.project-list a{
+
+.section p{
+  line-height:1.7;
+  font-size:17px;
+}
+
+.project-list a, .item{
   display:flex;
   justify-content:space-between;
+  gap:20px;
   color:#eee8dc;
   text-decoration:none;
   padding:18px 0;
   border-bottom:1px solid rgba(255,255,255,.15);
-  letter-spacing:3px;
+  letter-spacing:2px;
 }
-.blue{color:#1da1ff}
-.red{color:#ff3b1f}
-.green{color:#32c875}
+
+.item{
+  display:block;
+}
+
+.item strong{
+  color:#ffb000;
+}
+
+.blue{
+  color:#1da1ff;
+}
+
+.red{
+  color:#ff3b1f;
+}
+
+.green{
+  color:#32c875;
+}
+
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.skill{
+  border:1px solid rgba(255,255,255,.25);
+  padding:10px 14px;
+  border-radius:30px;
+  color:#eee8dc;
+  background:rgba(255,255,255,.04);
+}
+
 footer{
   padding:35px 6%;
   border-top:1px solid rgba(255,255,255,.16);
@@ -116,10 +191,19 @@ footer{
   letter-spacing:4px;
   font-size:12px;
 }
+
 @media(max-width:800px){
-  h1{font-size:70px}
-  .section{grid-template-columns:1fr}
-  .nav{display:none}
+  h1{
+    font-size:70px;
+  }
+
+  .section{
+    grid-template-columns:1fr;
+  }
+
+  .nav{
+    display:none;
+  }
 }
 </style>
 </head>
@@ -128,52 +212,121 @@ footer{
 
 <div class="nav">
   <a href="#projects">PROJECTS</a>
-  <a href="#about">ABOUT</a>
+  <a href="#skills">SKILLS</a>
+  <a href="#experience">EXPERIENCE</a>
   <a href="#contact">CONTACT</a>
 </div>
 
 <div class="hero">
   <div class="content">
-    <p class="small">UCSD ICAM STUDENT</p>
+    <p class="small">UCSD ICAM · DESIGN · FILM · FABRICATION</p>
+
     <h1><span>J</span>OHN<br><span>M</span>OSLEY</h1>
+
     <p class="tagline">
-      Filmmaker, creative technologist, and digital artist exploring the intersection
-      of art, film, technology, and human experience.
+      Sophomore ICAM student at UC San Diego creating work between
+      art, computation, design, film, fabrication, and architectural thinking.
     </p>
+
+    <a class="button" href="#projects">ENTER PORTFOLIO</a>
   </div>
 </div>
 
 <div class="section" id="projects">
   <div class="number">01.</div>
   <h2>PROJECTS</h2>
+
   <div class="project-list">
-    <a href="#"><span>BRAIN DAMAGE</span><span class="red">→</span></a>
-    <a href="#"><span>INTERACTIVE MEDIA</span><span class="blue">→</span></a>
-    <a href="#"><span>COMPUTING ARTS</span><span class="green">→</span></a>
+    <a href="#"><span>BRAIN DAMAGE · EXPERIMENTAL FILM</span><span class="red">→</span></a>
+    <a href="#"><span>CAD / RHINO / DESIGN STUDIES</span><span class="blue">→</span></a>
+    <a href="#"><span>WOODWORKING + FABRICATION</span><span class="green">→</span></a>
+    <a href="#"><span>ICAM COMPUTING ARTS</span><span class="red">→</span></a>
   </div>
 </div>
 
 <div class="section" id="about">
   <div class="number blue">02.</div>
   <h2>ABOUT</h2>
+
   <p>
-    I create work that lives between technology, storytelling, and emotion.
-    My practice explores film, interaction, computation, and atmosphere.
+    I am a B.S. Interdisciplinary Computing and the Arts student at UC San Diego,
+    expected to graduate in 2027. My work combines creative technology,
+    design communication, architectural drawing, hands-on fabrication, and visual storytelling.
+    I am interested in building experiences that feel emotional, physical, and designed with intention.
   </p>
 </div>
 
+<div class="section" id="skills">
+  <div class="number green">03.</div>
+  <h2>SKILLS</h2>
+
+  <div class="skills">
+    <div class="skill">AutoCAD</div>
+    <div class="skill">Rhino 3D</div>
+    <div class="skill">Revit</div>
+    <div class="skill">SolidWorks</div>
+    <div class="skill">Photoshop</div>
+    <div class="skill">Lightroom</div>
+    <div class="skill">InDesign</div>
+    <div class="skill">Premiere Pro</div>
+    <div class="skill">Woodworking</div>
+    <div class="skill">Architectural Drafting</div>
+    <div class="skill">Hand Drawing</div>
+    <div class="skill">Design Communication</div>
+  </div>
+</div>
+
+<div class="section" id="experience">
+  <div class="number red">04.</div>
+  <h2>EXPERIENCE</h2>
+
+  <div>
+    <div class="item">
+      <strong>Flooring Renovation Project</strong>
+      <p>Leading a residential hardwood floor remodel involving demolition, layout planning, material decisions, and installation.</p>
+    </div>
+
+    <div class="item">
+      <strong>Independent Carpentry</strong>
+      <p>Designed and built commissioned projects including a freestanding indoor bike rack and a street-facing mailbox structure.</p>
+    </div>
+
+    <div class="item">
+      <strong>Job Shadowing · Syska Hennessy Group & Glumac</strong>
+      <p>Observed professional MEP engineering and sustainability consulting processes across real project environments.</p>
+    </div>
+
+    <div class="item">
+      <strong>Freelance Art & Illustration</strong>
+      <p>Created original artwork and design concepts for a wellness-focused publication in development.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="number blue">05.</div>
+  <h2>AWARDS</h2>
+
+  <div>
+    <div class="item">Kiwanis Club of Mission Viejo · Distinguished Achievement in Engineering</div>
+    <div class="item">Diablo Excellence Award · Career Technical Education & Engineering II</div>
+    <div class="item">SVUSD CTE Pathway Award · Engineering Design Pathway</div>
+  </div>
+</div>
+
 <div class="section" id="contact">
-  <div class="number red">03.</div>
+  <div class="number red">06.</div>
   <h2>CONTACT</h2>
+
   <div class="project-list">
-    <a href="mailto:rsmosley@hotmail.com"><span>EMAIL</span><span>→</span></a>
-    <a href="#"><span>INSTAGRAM</span><span>→</span></a>
-    <a href="#"><span>LINKEDIN</span><span>→</span></a>
+    <a href="mailto:John.006@icloud.com"><span>EMAIL</span><span>→</span></a>
+    <a href="tel:9496332012"><span>PHONE</span><span>→</span></a>
+    <a href="#"><span>RESUME PDF</span><span>COMING SOON</span></a>
   </div>
 </div>
 
 <footer>
-  JOHN MOSLEY | ICAM PORTFOLIO
+  JOHN MOSLEY | UCSD ICAM PORTFOLIO | SAN DIEGO, CA
 </footer>
 
 </body>
