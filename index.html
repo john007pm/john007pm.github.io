@@ -4,13 +4,9 @@
 <title>John Mosley | ICAM Portfolio</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{ box-sizing:border-box; }
 
-html{
-  scroll-behavior:smooth;
-}
+html{ scroll-behavior:smooth; }
 
 body{
   margin:0;
@@ -39,7 +35,25 @@ body{
     radial-gradient(circle at 52% 58%, rgba(0,190,160,.45), transparent 13%),
     radial-gradient(circle at 82% 58%, rgba(255,0,90,.5), transparent 12%),
     #020202;
-  filter:contrast(150%) saturate(135%);
+  animation:breatheGlow 4s ease-in-out infinite;
+}
+
+@keyframes breatheGlow{
+  0%{
+    transform:scale(1);
+    filter:contrast(150%) saturate(135%) blur(0px);
+    opacity:.85;
+  }
+  50%{
+    transform:scale(1.08);
+    filter:contrast(180%) saturate(180%) blur(8px);
+    opacity:1;
+  }
+  100%{
+    transform:scale(1);
+    filter:contrast(150%) saturate(135%) blur(0px);
+    opacity:.85;
+  }
 }
 
 .hero:after{
@@ -91,13 +105,8 @@ h1{
   text-shadow:0 8px 0 rgba(255,255,255,.08);
 }
 
-h1 span:nth-child(1){
-  color:#ff3b1f;
-}
-
-h1 span:nth-child(2){
-  color:#1da1ff;
-}
+h1 span:nth-child(1){ color:#ff3b1f; }
+h1 span:nth-child(2){ color:#1da1ff; }
 
 .tagline{
   max-width:580px;
@@ -139,7 +148,8 @@ h1 span:nth-child(2){
   font-size:17px;
 }
 
-.project-list a, .item{
+.project-list a,
+.item{
   display:flex;
   justify-content:space-between;
   gap:20px;
@@ -150,6 +160,10 @@ h1 span:nth-child(2){
   letter-spacing:2px;
 }
 
+.project-list a:hover{
+  color:#ffb000;
+}
+
 .item{
   display:block;
 }
@@ -158,17 +172,9 @@ h1 span:nth-child(2){
   color:#ffb000;
 }
 
-.blue{
-  color:#1da1ff;
-}
-
-.red{
-  color:#ff3b1f;
-}
-
-.green{
-  color:#32c875;
-}
+.blue{ color:#1da1ff; }
+.red{ color:#ff3b1f; }
+.green{ color:#32c875; }
 
 .skills{
   display:flex;
@@ -201,42 +207,10 @@ footer a:hover{
   color:#ffb000;
 }
 
-.hero:before{
-  animation: breatheGlow 4s ease-in-out infinite;
-}
-
-@keyframes breatheGlow{
-  0%{
-    transform:scale(1);
-    filter:contrast(150%) saturate(135%) blur(0px);
-    opacity:.85;
-  }
-
-  50%{
-    transform:scale(1.08);
-    filter:contrast(180%) saturate(180%) blur(8px);
-    opacity:1;
-  }
-
-  100%{
-    transform:scale(1);
-    filter:contrast(150%) saturate(135%) blur(0px);
-    opacity:.85;
-  }
-}
-  
 @media(max-width:800px){
-  h1{
-    font-size:70px;
-  }
-
-  .section{
-    grid-template-columns:1fr;
-  }
-
-  .nav{
-    display:none;
-  }
+  h1{ font-size:70px; }
+  .section{ grid-template-columns:1fr; }
+  .nav{ display:none; }
 }
 </style>
 </head>
@@ -267,53 +241,40 @@ footer a:hover{
 
 <div class="section" id="projects">
   <div class="number">01.</div>
-
-  <h2>PROJECTS</h2>
-
-  <div>
-
-    <div class="item">
-      <strong>The Way I Cope</strong>
-      <p>
-        Visual identity and storytelling project exploring family,
-        nature, music, and design through typography,
-        photography, and image-making.
-      </p>
-    </div>
-
-    <div class="item">
-      <strong>Brain Damage</strong>
-      <p>
-        Experimental short film investigating perception,
-        memory, and internal dialogue through cinematic storytelling.
-      </p>
-    </div>
-
-    <div class="item">
-      <strong>VIS 41 Exhibition Design</strong>
-      <p>
-        Exhibition and poster design project focused on visual
-        communication, composition, and typography.
-      </p>
-    </div>
-
-    <div class="item">
-      <strong>Computing Arts Research</strong>
-      <p>
-        Research and reflection exploring technology,
-        interaction, and contemporary computing arts.
-      </p>
-    </div>
-
-  </div>
-</div>  <div class="number">01.</div>
   <h2>PROJECTS</h2>
 
   <div class="project-list">
-   <a href="the-way-i-cope.html"><span>THE WAY I COPE · VISUAL IDENTITY SERIES</span><span class="red">→</span></a>
-    <a href="#"><span>CAD / RHINO / DESIGN STUDIES</span><span class="blue">→</span></a>
-    <a href="#"><span>WOODWORKING + FABRICATION</span><span class="green">→</span></a>
-    <a href="#"><span>ICAM COMPUTING ARTS</span><span class="red">→</span></a>
+
+    <a href="the-way-i-cope.html">
+      <span>THE WAY I COPE · VISUAL IDENTITY SERIES</span>
+      <span class="red">→</span>
+    </a>
+
+    <a href="#">
+      <span>BRAIN DAMAGE · EXPERIMENTAL FILM</span>
+      <span class="blue">→</span>
+    </a>
+
+    <a href="#">
+      <span>VIS 41 EXHIBITION DESIGN</span>
+      <span class="green">→</span>
+    </a>
+
+    <a href="#">
+      <span>COMPUTING ARTS RESEARCH</span>
+      <span class="red">→</span>
+    </a>
+
+    <a href="#">
+      <span>CAD / RHINO / DESIGN STUDIES</span>
+      <span class="blue">→</span>
+    </a>
+
+    <a href="#">
+      <span>WOODWORKING + FABRICATION</span>
+      <span class="green">→</span>
+    </a>
+
   </div>
 </div>
 
