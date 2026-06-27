@@ -1,89 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>The Way I Cope | John Mosley</title>
 
 <style>
+*{box-sizing:border-box;}
+
 body{
-  margin:0;
-  background:#020202;
-  color:#eee8dc;
-  font-family:"Courier New", monospace;
-  padding:7%;
+    margin:0;
+    background:#020202;
+    color:#eee8dc;
+    font-family:"Courier New",monospace;
 }
 
-a{
-  color:#ffb000;
-  text-decoration:none;
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 30px;
 }
 
 h1{
-  font-family:Impact, Arial Black, sans-serif;
-  font-size:90px;
-  line-height:.9;
+    font-size:60px;
+    margin-bottom:10px;
 }
 
 p{
-  max-width:900px;
-  font-size:18px;
-  line-height:1.7;
+    color:#bfb8aa;
+    line-height:1.7;
 }
 
-.section{
-  margin-top:60px;
-  padding-top:35px;
-  border-top:1px solid rgba(255,255,255,.2);
+.back{
+    display:inline-block;
+    margin-bottom:50px;
+    color:#ffb000;
+    text-decoration:none;
+    letter-spacing:2px;
 }
 
-.button{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 22px;
-  border:1px solid #eee8dc;
-  color:#eee8dc;
-  letter-spacing:3px;
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:50px;
+}
+
+.card{
+    border:1px solid rgba(255,255,255,.15);
+    padding:30px;
+    background:#111;
+    transition:.3s;
+    text-decoration:none;
+    color:#eee8dc;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#ffb000;
+}
+
+.card h2{
+    margin-top:0;
+    font-size:24px;
+}
+
+.open{
+    color:#ffb000;
+    margin-top:20px;
+    display:block;
 }
 </style>
 </head>
 
 <body>
 
-<a href="index.html">← BACK TO HOME</a>
+<div class="container">
 
-<h1>THE WAY<br>I COPE</h1>
+<a class="back" href="index.html">← Back to Portfolio</a>
+
+<h1>The Way I Cope</h1>
 
 <p>
-The Way I Cope is a visual identity and storytelling project exploring the influences
-that shaped me: family, nature, music, and design. The project uses typography,
-image-making, abstraction, and poster design to turn personal reflection into a
-visual system.
+A collection of work exploring visual identity, design,
+and emotional storytelling through multiple pieces.
 </p>
 
-<div class="section">
-<h2>PROJECT IDEA</h2>
-<p>
-This project began with five personal motifs: brace, comedy, untamed,
-self-determination, and stunning. These ideas became the foundation for a series
-of posters and visual experiments.
-</p>
+<div class="gallery">
+
+<a class="card" href="artist-statement.pdf" target="_blank">
+<h2>Artist Statement</h2>
+<span class="open">Open PDF →</span>
+</a>
+
+<a class="card" href="poster-1.pdf" target="_blank">
+<h2>Poster 1</h2>
+<span class="open">Open PDF →</span>
+</a>
+
+<a class="card" href="poster-2.pdf" target="_blank">
+<h2>Poster 2</h2>
+<span class="open">Open PDF →</span>
+</a>
+
+<a class="card" href="poster-3.pdf" target="_blank">
+<h2>Poster 3</h2>
+<span class="open">Open PDF →</span>
+</a>
+
+<a class="card" href="poster-4.pdf" target="_blank">
+<h2>Poster 4</h2>
+<span class="open">Open PDF →</span>
+</a>
+
+<a class="card" href="poster-5.pdf" target="_blank">
+<h2>Poster 5</h2>
+<span class="open">Open PDF →</span>
+</a>
+
+<a class="card" href="poster-6.pdf" target="_blank">
+<h2>Poster 6</h2>
+<span class="open">Open PDF →</span>
+</a>
+
 </div>
 
-<div class="section">
-<h2>PROCESS</h2>
-<p>
-I worked with expressive typography, scanned textures, photography, contrast,
-and layered compositions to create a rough, emotional, and personal visual style.
-</p>
 </div>
-
-<div class="section">
-<h2>FINAL WORK</h2>
-<p>
-Upload your project PDF or images to GitHub, then we can add them here as a gallery.
-</p>
-</div>
-
-<a class="button" href="index.html#projects">BACK TO PROJECTS</a>
 
 </body>
 </html>
