@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>PDF Viewer</title>
 
 <style>
@@ -19,31 +19,24 @@ body{
   background:#020202;
   padding:16px;
   border-bottom:1px solid rgba(255,255,255,.18);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
 }
 
-a, button{
+a{
   color:#ffb000;
-  background:none;
-  border:1px solid #ffb000;
-  padding:8px 10px;
   text-decoration:none;
-  font-family:"Courier New", monospace;
+  letter-spacing:2px;
 }
 
 #pdf-container{
-  padding:16px;
+  padding:0;
+  overflow-x:hidden;
 }
 
 canvas{
   display:block;
+  width:100%;
   height:auto;
-  margin:0 auto 20px auto;
   background:white;
-  max-width:none;
 }
 </style>
 </head>
@@ -51,9 +44,7 @@ canvas{
 <body>
 
 <div class="topbar">
-  <a href="the-way-i-cope.html">← Back</a>
-  <button onclick="zoomOut()">−</button>
-  <button onclick="zoomIn()">+</button>
+  <a href="the-way-i-cope.html">← Back to The Way I Cope</a>
 </div>
 
 <div id="pdf-container"></div>
@@ -67,8 +58,6 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 const params = new URLSearchParams(window.location.search);
 const file = params.get("file");
 
-let zoom = 1.4;
-
 function renderPDF(){
   const container = document.getElementById("pdf-container");
   container.innerHTML = "";
@@ -76,15 +65,13 @@ function renderPDF(){
   pdfjsLib.getDocument(file).promise.then(pdf => {
     for(let pageNum = 1; pageNum <= pdf.numPages; pageNum++){
       pdf.getPage(pageNum).then(page => {
-        const viewport = page.getViewport({ scale: zoom });
+        const viewport = page.getViewport({ scale: 2 });
 
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
 
-        canvas.height = viewport.height;
         canvas.width = viewport.width;
-        canvas.style.width = viewport.width + "px";
-        canvas.style.height = viewport.height + "px";
+        canvas.height = viewport.height;
 
         container.appendChild(canvas);
 
@@ -95,18 +82,6 @@ function renderPDF(){
       });
     }
   });
-}
-
-function zoomIn(){
-  zoom += 0.2;
-  renderPDF();
-}
-
-function zoomOut(){
-  if(zoom > 0.6){
-    zoom -= 0.2;
-    renderPDF();
-  }
 }
 
 renderPDF();
