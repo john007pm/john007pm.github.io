@@ -14,6 +14,26 @@ body{
     background:#020202;
     color:#eee8dc;
     font-family:"Courier New",monospace;
+    overflow-x:hidden;
+    position:relative;
+}
+
+    body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+
+    background:
+        radial-gradient(circle at 82% 12%, rgba(255,40,0,.98), transparent 20%),
+        radial-gradient(circle at 72% 25%, rgba(255,180,0,.95), transparent 16%),
+        radial-gradient(circle at 61% 33%, rgba(0,140,255,.85), transparent 15%),
+        radial-gradient(circle at 48% 52%, rgba(0,255,140,.55), transparent 18%),
+        radial-gradient(circle at 88% 68%, rgba(255,0,80,.45), transparent 15%),
+        #020202;
+
+    filter:blur(24px) saturate(220%);
+    animation:glowMove 10s ease-in-out infinite alternate;
 }
 
 .container{
@@ -57,25 +77,32 @@ p{
     transition:.4s;
 }
 
-.card:hover .preview{
-    transform:scale(1.03);
-}
-
 .card{
-    overflow:hidden;
-}
-    
-.card{
-    border:1px solid rgba(255,255,255,.15);
-    padding:30px;
-    background:#111;
-    transition:.3s;
+    border:1px solid rgba(255,255,255,.12);
+    padding:0;
+    background:rgba(18,18,18,.75);
+    backdrop-filter:blur(10px);
+    transition:.35s;
     text-decoration:none;
     color:#eee8dc;
+    overflow:hidden;
+
+    box-shadow:
+        0 0 18px rgba(255,180,0,.12),
+        0 0 40px rgba(255,60,0,.10),
+        0 0 70px rgba(0,140,255,.08);
+
+    border-radius:18px;
 }
 
 .card:hover{
-    transform:translateY(-6px);
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 0 25px rgba(255,180,0,.35),
+        0 0 70px rgba(255,60,0,.28),
+        0 0 110px rgba(0,140,255,.18);
+
     border-color:#ffb000;
 }
 
@@ -89,6 +116,23 @@ p{
     margin-top:20px;
     display:block;
 }
+
+    @keyframes glowMove{
+
+0%{
+    transform:scale(1);
+}
+
+50%{
+    transform:scale(1.06) translate(-20px,-15px);
+}
+
+100%{
+    transform:scale(1.12) translate(18px,15px);
+}
+
+}
+    
 </style>
 </head>
 
