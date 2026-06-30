@@ -47,6 +47,24 @@ p{
     margin-top:50px;
 }
 
+.preview{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    object-position:top;
+    display:block;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    transition:.4s;
+}
+
+.card:hover .preview{
+    transform:scale(1.03);
+}
+
+.card{
+    overflow:hidden;
+}
+    
 .card{
     border:1px solid rgba(255,255,255,.15);
     padding:30px;
@@ -92,23 +110,51 @@ and emotional storytelling through multiple pieces.
 <div class="gallery">
 
 <a class="card" href="pdf-viewer.html?file=artist-statement.pdf">
+
+<img class="preview"
+src="artist-statement.jpg"
+alt="Artist Statement">
+
 <h2>Artist Statement</h2>
-<span class="open">Open PDF →</span>
+
+<span class="open">View Project →</span>
+
 </a>
 
 <a class="card" href="pdf-viewer.html?file=poster-1.pdf">
+
+<img class="preview"
+src="poster-1.jpg"
+alt="Poster 1">
+
 <h2>Poster 1</h2>
-<span class="open">Open PDF →</span>
+
+<span class="open">View Project →</span>
+
 </a>
 
 <a class="card" href="pdf-viewer.html?file=poster-2.pdf">
+
+<img class="preview"
+src="poster-2.jpg"
+alt="Poster 2">
+
 <h2>Poster 2</h2>
-<span class="open">Open PDF →</span>
+
+<span class="open">View Project →</span>
+
 </a>
 
 <a class="card" href="pdf-viewer.html?file=exhibition-final.pdf">
+
+<img class="preview"
+src="exhibition-final.jpg"
+alt="Exhibition Final">
+
 <h2>Exhibition Final</h2>
-<span class="open">Open PDF →</span>
+
+<span class="open">View Project →</span>
+
 </a>
 
 </div>
