@@ -80,7 +80,7 @@ body:before{
 }
 
 #pdf-container{
-  padding:30px 18px;
+  padding:20px 0 80px 0;
   overflow-x:hidden;
 }
 
@@ -139,22 +139,30 @@ canvas{
 }
 
 @media(max-width:800px){
+
   #pdf-container{
-    padding:18px 10px;
+    padding:20px 0 40px 0;
   }
 
   .page-wrap{
+    width:92vw;
+    min-width:0;
+    margin:30px auto;
+  }
+
+}
+
+  .page-wrap{
   position:relative;
-  margin:34px auto;
+  margin:50px auto;
   padding:0;
-  width:88vw;
-  max-width:720px;
+  width:55vw;
+  max-width:620px;
+  min-width:320px;
   background:transparent;
   border:none;
   box-shadow:none;
-  border-radius:0;
 }
-
   .watermark{
   position:absolute;
   inset:14px;
