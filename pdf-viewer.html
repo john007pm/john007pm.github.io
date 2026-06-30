@@ -5,6 +5,8 @@
 <title>PDF Viewer | John Mosley</title>
 
 <style>
+*{ box-sizing:border-box; }
+
 body{
   margin:0;
   background:#020202;
@@ -16,7 +18,7 @@ body:before{
   content:"";
   position:fixed;
   inset:0;
-  z-index:-1;
+  z-index:-2;
   background:
     radial-gradient(circle at 74% 20%, rgba(255,50,0,.95), transparent 18%),
     radial-gradient(circle at 62% 36%, rgba(255,180,0,.75), transparent 14%),
@@ -29,26 +31,25 @@ body:before{
 .topbar{
   position:sticky;
   top:0;
-  z-index:10;
+  z-index:20;
   background:rgba(2,2,2,.92);
   backdrop-filter:blur(12px);
-  padding:16px;
+  padding:18px;
   border-bottom:1px solid rgba(255,255,255,.18);
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
 }
 
-a{
+.topbar a{
   color:#ffb000;
   text-decoration:none;
   letter-spacing:2px;
 }
 
 .notice{
-  padding:14px 16px;
-  background:rgba(0,0,0,.75);
+  position:sticky;
+  top:58px;
+  z-index:19;
+  padding:14px 18px;
+  background:rgba(0,0,0,.78);
   border-bottom:1px solid rgba(255,255,255,.15);
   color:#bfb8aa;
   font-size:13px;
@@ -56,8 +57,20 @@ a{
 }
 
 #pdf-container{
-  padding:0;
+  padding:30px 18px;
   overflow-x:hidden;
+}
+
+.page-wrap{
+  position:relative;
+  margin:0 auto 34px auto;
+  padding:14px;
+  max-width:1000px;
+  background:rgba(238,232,220,.08);
+  border:4px solid rgba(255,176,0,.7);
+  box-shadow:
+    0 0 30px rgba(255,176,0,.25),
+    0 0 80px rgba(255,50,0,.18);
 }
 
 canvas{
@@ -65,7 +78,62 @@ canvas{
   width:100%;
   height:auto;
   background:white;
-  margin-bottom:20px;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  pointer-events:none;
+}
+
+.watermark{
+  position:absolute;
+  inset:14px;
+  pointer-events:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:rgba(0,0,0,.13);
+  font-size:42px;
+  font-weight:bold;
+  letter-spacing:8px;
+  line-height:1.4;
+  transform:rotate(-24deg);
+  z-index:5;
+}
+
+.corner-mark{
+  position:absolute;
+  bottom:24px;
+  right:24px;
+  z-index:6;
+  background:rgba(0,0,0,.45);
+  color:rgba(255,255,255,.72);
+  padding:8px 10px;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+@media(max-width:800px){
+  #pdf-container{
+    padding:18px 10px;
+  }
+
+  .page-wrap{
+    padding:8px;
+    border:3px solid rgba(255,176,0,.75);
+  }
+
+  .watermark{
+    inset:8px;
+    font-size:24px;
+    letter-spacing:4px;
+  }
+
+  .corner-mark{
+    bottom:14px;
+    right:14px;
+    font-size:9px;
+  }
 }
 </style>
 </head>
@@ -74,12 +142,10 @@ canvas{
 
 <div class="topbar">
   <a href="the-way-i-cope.html">← Back to The Way I Cope</a>
-  <a id="downloadLink" download>Download PDF ↓</a>
 </div>
 
 <div class="notice">
-  © John Mosley. All artwork, writing, and design shown here are for portfolio viewing only.
-  Do not copy, reuse, repost, or distribute without permission.
+  © John Mosley. Portfolio viewing only. Do not copy, save, repost, reuse, distribute, or claim this work without permission.
 </div>
 
 <div id="pdf-container"></div>
@@ -90,10 +156,23 @@ canvas{
 pdfjsLib.GlobalWorkerOptions.workerSrc =
 "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
+document.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+});
+
+document.addEventListener("dragstart", function(e){
+  e.preventDefault();
+});
+
+document.addEventListener("keydown", function(e){
+  if((e.ctrlKey || e.metaKey) && (e.key === "s" || e.key === "p")){
+    e.preventDefault();
+    alert("This work is protected and may not be saved, printed, or copied.");
+  }
+});
+
 const params = new URLSearchParams(window.location.search);
 const file = params.get("file");
-
-document.getElementById("downloadLink").href = file;
 
 function renderPDF(){
   const container = document.getElementById("pdf-container");
@@ -103,13 +182,28 @@ function renderPDF(){
     for(let pageNum = 1; pageNum <= pdf.numPages; pageNum++){
       pdf.getPage(pageNum).then(page => {
         const viewport = page.getViewport({ scale: 2 });
+
+        const wrap = document.createElement("div");
+        wrap.className = "page-wrap";
+
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
 
         canvas.width = viewport.width;
         canvas.height = viewport.height;
 
-        container.appendChild(canvas);
+        const watermark = document.createElement("div");
+        watermark.className = "watermark";
+        watermark.innerHTML = "© JOHN MOSLEY<br>DO NOT COPY";
+
+        const corner = document.createElement("div");
+        corner.className = "corner-mark";
+        corner.innerHTML = "© John Mosley";
+
+        wrap.appendChild(canvas);
+        wrap.appendChild(watermark);
+        wrap.appendChild(corner);
+        container.appendChild(wrap);
 
         page.render({
           canvasContext: context,
