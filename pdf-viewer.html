@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>PDF Viewer</title>
+<title>PDF Viewer | John Mosley</title>
 
 <style>
 body{
@@ -12,19 +12,47 @@ body{
   font-family:"Courier New", monospace;
 }
 
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 74% 20%, rgba(255,50,0,.95), transparent 18%),
+    radial-gradient(circle at 62% 36%, rgba(255,180,0,.75), transparent 14%),
+    radial-gradient(circle at 53% 36%, rgba(0,130,210,.55), transparent 13%),
+    radial-gradient(circle at 48% 55%, rgba(0,190,120,.35), transparent 14%),
+    #020202;
+  filter:blur(12px) saturate(160%);
+}
+
 .topbar{
   position:sticky;
   top:0;
   z-index:10;
-  background:#020202;
+  background:rgba(2,2,2,.92);
+  backdrop-filter:blur(12px);
   padding:16px;
   border-bottom:1px solid rgba(255,255,255,.18);
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
 a{
   color:#ffb000;
   text-decoration:none;
   letter-spacing:2px;
+}
+
+.notice{
+  padding:14px 16px;
+  background:rgba(0,0,0,.75);
+  border-bottom:1px solid rgba(255,255,255,.15);
+  color:#bfb8aa;
+  font-size:13px;
+  line-height:1.5;
 }
 
 #pdf-container{
@@ -37,6 +65,7 @@ canvas{
   width:100%;
   height:auto;
   background:white;
+  margin-bottom:20px;
 }
 </style>
 </head>
@@ -45,6 +74,12 @@ canvas{
 
 <div class="topbar">
   <a href="the-way-i-cope.html">← Back to The Way I Cope</a>
+  <a id="downloadLink" download>Download PDF ↓</a>
+</div>
+
+<div class="notice">
+  © John Mosley. All artwork, writing, and design shown here are for portfolio viewing only.
+  Do not copy, reuse, repost, or distribute without permission.
 </div>
 
 <div id="pdf-container"></div>
@@ -58,6 +93,8 @@ pdfjsLib.GlobalWorkerOptions.workerSrc =
 const params = new URLSearchParams(window.location.search);
 const file = params.get("file");
 
+document.getElementById("downloadLink").href = file;
+
 function renderPDF(){
   const container = document.getElementById("pdf-container");
   container.innerHTML = "";
@@ -66,7 +103,6 @@ function renderPDF(){
     for(let pageNum = 1; pageNum <= pdf.numPages; pageNum++){
       pdf.getPage(pageNum).then(page => {
         const viewport = page.getViewport({ scale: 2 });
-
         const canvas = document.createElement("canvas");
         const context = canvas.getContext("2d");
 
