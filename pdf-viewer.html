@@ -112,19 +112,18 @@ canvas{
 
 .watermark{
   position:absolute;
-  inset:14px;
+  inset:0;
   pointer-events:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:rgba(0,0,0,.13);
-  font-size:42px;
-  font-weight:bold;
-  letter-spacing:8px;
-  line-height:1.4;
-  transform:rotate(-24deg);
   z-index:5;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  color:rgba(0,0,0,.08);
+  font-size:clamp(22px, 4vw, 42px);
+  font-weight:bold;
+  letter-spacing:5px;
+  line-height:1.5;
+  transform:rotate(-18deg);
 }
 
 .corner-mark{
@@ -147,16 +146,13 @@ canvas{
   .page-wrap{
   position:relative;
   margin:34px auto;
-  padding:14px;
-  width:92%;
-  max-width:760px;
-  background:rgba(255,255,255,.05);
-  border:5px solid rgba(255,180,0,.85);
-  box-shadow:
-    0 0 35px rgba(255,180,0,.55),
-    0 0 80px rgba(255,0,0,.35),
-    0 0 140px rgba(0,140,255,.25);
-  border-radius:18px;
+  padding:0;
+  width:88vw;
+  max-width:720px;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  border-radius:0;
 }
 
   .watermark{
