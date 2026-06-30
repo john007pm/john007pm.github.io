@@ -40,10 +40,10 @@ a, button{
 
 canvas{
   display:block;
-  width:100%;
   height:auto;
   margin:0 auto 20px auto;
   background:white;
+  max-width:none;
 }
 </style>
 </head>
@@ -83,6 +83,8 @@ function renderPDF(){
 
         canvas.height = viewport.height;
         canvas.width = viewport.width;
+        canvas.style.width = viewport.width + "px";
+        canvas.style.height = viewport.height + "px";
 
         container.appendChild(canvas);
 
