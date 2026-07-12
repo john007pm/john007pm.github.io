@@ -123,8 +123,30 @@ h1 span:nth-child(2){ color:#1da1ff; }
   display:grid;
   grid-template-columns:120px 1fr 1.3fr;
   gap:40px;
+
+  opacity:.45;
+  transform:translateY(30px);
+
+  transition:
+      opacity .8s ease,
+      transform .8s ease,
+      text-shadow .8s ease;
+}
+.section.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
 }
 
+.section.visible h2{
+
+    text-shadow:
+        0 0 20px rgba(255,180,0,.5),
+        0 0 40px rgba(255,70,0,.25);
+
+}
 .number{
   font-size:38px;
   color:#ffb000;
@@ -437,6 +459,30 @@ footer a:hover{
   |
   <a href="https://ucsd.edu/" target="_blank">UC SAN DIEGO, CA</a>
 </footer>
+<script>
 
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("visible");
+
+        }
+
+    });
+
+},{
+    threshold:.35
+});
+
+document.querySelectorAll(".section").forEach(section=>{
+
+    observer.observe(section);
+
+});
+
+</script>
 </body>
 </html>
