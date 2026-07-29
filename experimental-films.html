@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Experimental Films | John Mosley</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      background:#020202;
+      color:#eee8dc;
+      font-family:"Courier New", monospace;
+    }
+
+    .page-header{
+      min-height:55vh;
+      position:relative;
+      overflow:hidden;
+      padding:6%;
+      display:flex;
+      align-items:flex-end;
+      border-bottom:1px solid rgba(255,255,255,.16);
+    }
+
+    .page-header:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 70% 45%, rgba(29,161,255,.75), transparent 18%),
+        radial-gradient(circle at 58% 55%, rgba(255,59,31,.55), transparent 17%),
+        radial-gradient(circle at 82% 65%, rgba(255,176,0,.4), transparent 15%),
+        #020202;
+      animation:breatheGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes breatheGlow{
+      0%{
+        transform:scale(1);
+        filter:contrast(150%) saturate(135%);
+        opacity:.8;
+      }
+
+      50%{
+        transform:scale(1.08);
+        filter:contrast(180%) saturate(180%) blur(8px);
+        opacity:1;
+      }
+
+      100%{
+        transform:scale(1);
+        filter:contrast(150%) saturate(135%);
+        opacity:.8;
+      }
+    }
+
+    .header-content{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:1000px;
+    }
+
+    .back-link{
+      position:absolute;
+      top:35px;
+      left:6%;
+      z-index:3;
+      color:#eee8dc;
+      text-decoration:none;
+      letter-spacing:3px;
+      font-size:13px;
+    }
+
+    .back-link:hover{
+      color:#ffb000;
+    }
+
+    .small{
+      color:#1da1ff;
+      letter-spacing:7px;
+      font-size:13px;
+    }
+
+    h1{
+      font-family:Impact, "Arial Black", sans-serif;
+      font-size:90px;
+      line-height:.9;
+      letter-spacing:2px;
+      margin:20px 0;
+    }
+
+    .description{
+      max-width:700px;
+      font-size:17px;
+      line-height:1.7;
+    }
+
+    .film-section{
+      padding:75px 6%;
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:40px;
+      border-bottom:1px solid rgba(255,255,255,.16);
+    }
+
+    .number{
+      color:#1da1ff;
+      font-size:38px;
+    }
+
+    .film-content{
+      max-width:1100px;
+    }
+
+    .film-content h2{
+      margin-top:0;
+      margin-bottom:15px;
+      font-size:34px;
+      letter-spacing:5px;
+    }
+
+    .film-content p{
+      max-width:760px;
+      font-size:16px;
+      line-height:1.7;
+      color:#cfc9bf;
+    }
+
+    .video-wrapper{
+      position:relative;
+      width:100%;
+      margin-top:35px;
+      background:#000;
+      border:1px solid rgba(255,255,255,.2);
+      box-shadow:0 20px 60px rgba(0,0,0,.65);
+    }
+
+    video{
+      display:block;
+      width:100%;
+      height:auto;
+      background:#000;
+    }
+
+    footer{
+      padding:35px 6%;
+      color:#888;
+      letter-spacing:3px;
+      font-size:12px;
+    }
+
+    footer a{
+      color:#eee8dc;
+      text-decoration:none;
+    }
+
+    footer a:hover{
+      color:#ffb000;
+    }
+
+    @media(max-width:800px){
+      .page-header{
+        min-height:60vh;
+        padding:28px;
+        padding-bottom:65px;
+      }
+
+      .back-link{
+        top:25px;
+        left:28px;
+      }
+
+      .small{
+        font-size:10px;
+        letter-spacing:4px;
+        line-height:1.6;
+      }
+
+      h1{
+        font-size:55px;
+      }
+
+      .description{
+        font-size:15px;
+      }
+
+      .film-section{
+        grid-template-columns:1fr;
+        padding:55px 28px;
+        gap:18px;
+      }
+
+      .number{
+        font-size:28px;
+      }
+
+      .film-content h2{
+        font-size:28px;
+        letter-spacing:3px;
+      }
+
+      footer{
+        padding:30px 28px;
+        line-height:2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="back-link" href="index.html#projects">← BACK TO PORTFOLIO</a>
+
+  <header class="page-header">
+    <div class="header-content">
+      <p class="small">FILM · EDITING · SOUND · VISUAL STORYTELLING</p>
+
+      <h1>EXPERIMENTAL<br>FILMS</h1>
+
+      <p class="description">
+        A collection of experimental film projects exploring visual storytelling,
+        sound, emotion, cinematography, editing, and unconventional narrative structure.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="film-section">
+      <div class="number">01.</div>
+
+      <div class="film-content">
+        <h2>BRAIN DAMAGE</h2>
+
+        <p>
+          An experimental short film exploring internal thought, memory, perception,
+          and emotional disorientation through cinematography, sound, performance,
+          and nonlinear editing.
+        </p>
+
+        <div class="video-wrapper">
+          <video controls playsinline preload="metadata">
+            <source src="brain-damage.mp4" type="video/mp4">
+
+            Your browser does not support the video element.
+          </video>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="index.html">JOHN MOSLEY PORTFOLIO</a>
+    |
+    EXPERIMENTAL FILMS
+  </footer>
+
+</body>
+</html>
